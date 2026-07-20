@@ -4,8 +4,9 @@ Dagelijkse marktrisico-pipeline die een `risk.json` publiceert voor het JanApp-d
 Meet **marktfragiliteit**, voorspelt geen crashes — zie [`Risk_module_design.md`](Risk_module_design.md)
 voor de bindende specificatie.
 
-> **Status: fase 2 (scoring-engine + risk.json) afgerond.**
-> Validatierapport (fase 3) en AI-laag + workflow (fase 4) volgen.
+> **Status: fase 3 (validatierapport) afgerond.**
+> Zie [`VALIDATION.md`](VALIDATION.md) — daarop wordt beoordeeld of de module live gaat.
+> AI-laag + workflow (fase 4) volgen.
 
 ## Opzet
 
@@ -21,9 +22,14 @@ voor de bindende specificatie.
 
 Scoren gebeurt met point-in-time percentielen: een expanderend venster over de volledige
 eigen historie van elke indicator (CAPE terug tot 1881, NFCI tot 1971), nooit met data van
-later. Regimes worden vanaf 1990 berekend, met 5 dagen hysterese op de drempel van 60.
-Valt een indicator of pijler uit (te jong, bron stuk), dan hernormaliseren de gewichten
-over wat er wél is.
+later. Regimes worden vanaf 1990 berekend, met dubbele hysterese op de drempel van 60:
+een wissel vereist 5 opeenvolgende dagen in het nieuwe kwadrant, en een as die "hoog" is
+geworden valt pas terug onder 55 (Schmitt-trigger — anders flippert het label op weekschaal
+rond de drempel, zoals medio 2022). Valt een indicator of pijler uit (te jong, bron stuk),
+dan hernormaliseren de gewichten over wat er wél is.
+
+Valideren: `python -m src.validate` genereert [`VALIDATION.md`](VALIDATION.md) —
+event-studies, false positives, baselines, correlaties en sensitiviteit, alles point-in-time.
 
 ## Lokaal draaien
 

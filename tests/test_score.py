@@ -119,3 +119,18 @@ def test_vijf_dagen_over_de_drempel_wisselt_wel():
 def test_beide_assen_hoog_is_storm():
     axes = _axes([70.0] * 10, fragility=70.0)
     assert score.regime_series(axes)["regime"].iloc[-1] == "storm"
+
+
+def test_schmitt_trigger_houdt_regime_vast_rond_de_drempel():
+    """Eenmaal hoog valt een as pas terug onder (drempel - marge): 57 blijft dan 'hoog'."""
+    axes = _axes([50.0] * 10 + [70.0] * 6 + [57.0] * 20)
+    regime = score.regime_series(axes)
+
+    assert regime["regime"].iloc[-1] == "shock"  # zonder marge was dit teruggevallen naar calm
+
+
+def test_schmitt_trigger_laat_los_onder_de_marge():
+    axes = _axes([50.0] * 10 + [70.0] * 6 + [54.0] * 8)
+    regime = score.regime_series(axes)
+
+    assert regime["regime"].iloc[-1] == "calm"

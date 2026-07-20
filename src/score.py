@@ -112,20 +112,36 @@ def pillar_scores(pcts: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def axis_scores(pillars: pd.DataFrame) -> pd.DataFrame:
-    cfg = load_config()
+def axis_scores(pillars: pd.DataFrame, axis_weights: dict[str, dict[str, float]] | None = None) -> pd.DataFrame:
+    """Asscores; `axis_weights` overschrijft de config (voor de sensitiviteitsanalyse)."""
+    weights_by_axis = axis_weights or load_config()["axes"]
     out = pd.DataFrame(index=pillars.index)
-    for axis, weights in cfg["axes"].items():
+    for axis, weights in weights_by_axis.items():
         out[axis] = _weighted_mean(pillars, weights)
     return out
 
 
-def regime_series(axes: pd.DataFrame) -> pd.DataFrame:
+def _schmitt(value: float, was_high: bool, threshold: float, exit_margin: float) -> bool:
+    """Tweezijdige drempel: hoog worden bij >= drempel, pas terugvallen onder (drempel - marge).
+
+    Zonder deze marge flippert een as die rond de drempel schommelt op weekschaal heen en
+    weer — de 5-dagen-hysterese vangt alleen dag-geflipper af.
+    """
+    return value >= (threshold - exit_margin if was_high else threshold)
+
+
+def regime_series(
+    axes: pd.DataFrame,
+    threshold: float | None = None,
+    hysteresis: int | None = None,
+    exit_margin: float | None = None,
+) -> pd.DataFrame:
     """Regime per dag, met hysterese: een wissel vereist `hysteresis_days` opeenvolgende
     dagen in het nieuwe kwadrant. `regime_since` is de eerste dag van die reeks."""
     rcfg = load_config()["regime"]
-    threshold = float(rcfg["high_threshold"])
-    hysteresis = int(rcfg["hysteresis_days"])
+    threshold = float(rcfg["high_threshold"] if threshold is None else threshold)
+    hysteresis = int(rcfg["hysteresis_days"] if hysteresis is None else hysteresis)
+    exit_margin = float(rcfg.get("exit_margin", 0) if exit_margin is None else exit_margin)
 
     valid = axes.dropna(subset=["fragility", "stress"])
     regimes: list[str] = []
@@ -134,9 +150,12 @@ def regime_series(axes: pd.DataFrame) -> pd.DataFrame:
     current = candidate = None
     since = streak_start = None
     streak = 0
+    frag_high = stress_high = False
 
     for date, row in valid.iterrows():
-        quad = QUADRANT[(row["fragility"] >= threshold, row["stress"] >= threshold)]
+        frag_high = _schmitt(row["fragility"], frag_high, threshold, exit_margin)
+        stress_high = _schmitt(row["stress"], stress_high, threshold, exit_margin)
+        quad = QUADRANT[(frag_high, stress_high)]
         if current is None:
             current, since = quad, date
         elif quad == current:

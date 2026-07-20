@@ -13,6 +13,10 @@ regime:
   high_threshold: 60
   # Een regimewissel vereist dit aantal opeenvolgende dagen aan de andere kant van de drempel.
   hysteresis_days: 5
+  # Schmitt-trigger: een as die "hoog" is geworden valt pas terug onder (drempel - marge).
+  # Zonder deze marge flippert het regime op weekschaal rond de drempel — in 2022 las het
+  # model daardoor drie keer "Kalm" midden in een daling van -25%.
+  exit_margin: 5
 
 analogs:
   count: 20
