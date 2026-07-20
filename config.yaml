@@ -1,0 +1,95 @@
+# Configuratie van de risk-module. Gewichten komen letterlijk uit Risk_module_design.md §5.
+# Gewichten zijn beredeneerd, niet geoptimaliseerd — wijzig ze alleen met een argument, niet om
+# een sanity-test te laten slagen.
+
+history:
+  # Percentielvenster start hier; oudere data wordt wel bewaard maar telt niet mee.
+  start: "1990-01-01"
+  # Een indicator telt pas mee zodra hij dit aantal jaar eigen historie heeft (design doc §5).
+  min_years: 10
+
+regime:
+  # Score >= drempel telt als "hoog" op die as.
+  high_threshold: 60
+  # Een regimewissel vereist dit aantal opeenvolgende dagen aan de andere kant van de drempel.
+  hysteresis_days: 5
+
+analogs:
+  count: 20
+  # De 12 maanden direct vóór "vandaag" tellen niet mee als analoog (design doc §5).
+  exclude_recent_months: 12
+
+robustness:
+  # De run faalt pas als meer dan deze fractie van de meetellende indicatoren stale is.
+  max_stale_fraction: 0.5
+  # Zoveel handelsdagen zonder nieuwe waarde voordat een dagelijkse indicator stale heet.
+  stale_after_days:
+    daily: 5
+    weekly: 12
+    monthly: 45
+
+tickers:
+  index: "^GSPC"
+  vix: "^VIX"
+  vix3m: "^VIX3M"
+  spy: "SPY"
+  rsp: "RSP"
+  sectors: [XLB, XLC, XLE, XLF, XLI, XLK, XLP, XLRE, XLU, XLV, XLY]
+
+fred_series:
+  hy_oas: BAMLH0A0HYM2      # ICE BofA US High Yield OAS
+  yield_curve: T10Y3M       # 10-jaars minus 3-maands
+  nfci: NFCI                # Chicago Fed National Financial Conditions Index
+  real_10y: DFII10          # 10-jaars TIPS-rente (reëel)
+
+lags:
+  # Publicatielags, in dagen na het einde van de meetmaand (design doc: margin debt telt mee
+  # per publicatiedatum, niet per meetmaand).
+  margin_debt_days: 25
+  cape_days: 5
+
+# --- Scoring -----------------------------------------------------------------
+# direction: "high" = een hoge waarde betekent meer risico; "low" = een lage waarde betekent
+# meer risico (het percentiel wordt dan omgekeerd).
+
+axes:
+  fragility:
+    valuation: 0.45
+    credit_slow: 0.30
+    positioning: 0.25
+  stress:
+    volatility: 0.35
+    breadth: 0.35
+    credit_fast: 0.30
+
+pillars:
+  valuation:
+    axis: fragility
+    indicators:
+      cape: {weight: 0.5, direction: high}
+      excess_cape_yield: {weight: 0.5, direction: low}
+  credit_slow:
+    axis: fragility
+    indicators:
+      yield_curve: {weight: 0.5, direction: low}
+      nfci: {weight: 0.5, direction: high}
+  positioning:
+    axis: fragility
+    indicators:
+      margin_debt_yoy: {weight: 0.5, direction: high}
+      top10_concentration: {weight: 0.5, direction: high}
+  volatility:
+    axis: stress
+    indicators:
+      vix_ratio: {weight: 0.5, direction: high}
+      trend_stress: {weight: 0.5, direction: high}
+  breadth:
+    axis: stress
+    indicators:
+      sectors_above_200dma: {weight: 0.5, direction: low}
+      rsp_spy_6m: {weight: 0.5, direction: low}
+  credit_fast:
+    axis: stress
+    indicators:
+      hy_oas: {weight: 0.5, direction: high}
+      hy_oas_63d: {weight: 0.5, direction: high}

@@ -1,0 +1,226 @@
+{
+  "generated_at": "2026-07-20T10:38:44+00:00",
+  "ok": true,
+  "message": "0/6 meetellende indicatoren stale (0%): -",
+  "sources": {
+    "px_index": {
+      "ok": true,
+      "error": null,
+      "rows_added": 11730,
+      "rows_total": 11730,
+      "last_date": "2026-07-17"
+    },
+    "px_vix": {
+      "ok": true,
+      "error": null,
+      "rows_added": 9204,
+      "rows_total": 9204,
+      "last_date": "2026-07-20"
+    },
+    "px_vix3m": {
+      "ok": true,
+      "error": null,
+      "rows_added": 5032,
+      "rows_total": 5032,
+      "last_date": "2026-07-17"
+    },
+    "px_spy": {
+      "ok": true,
+      "error": null,
+      "rows_added": 8423,
+      "rows_total": 8423,
+      "last_date": "2026-07-17"
+    },
+    "px_rsp": {
+      "ok": true,
+      "error": null,
+      "rows_added": 5840,
+      "rows_total": 5840,
+      "last_date": "2026-07-17"
+    },
+    "px_xlb": {
+      "ok": true,
+      "error": null,
+      "rows_added": 6933,
+      "rows_total": 6933,
+      "last_date": "2026-07-17"
+    },
+    "px_xlc": {
+      "ok": true,
+      "error": null,
+      "rows_added": 2030,
+      "rows_total": 2030,
+      "last_date": "2026-07-17"
+    },
+    "px_xle": {
+      "ok": true,
+      "error": null,
+      "rows_added": 6933,
+      "rows_total": 6933,
+      "last_date": "2026-07-17"
+    },
+    "px_xlf": {
+      "ok": true,
+      "error": null,
+      "rows_added": 6933,
+      "rows_total": 6933,
+      "last_date": "2026-07-17"
+    },
+    "px_xli": {
+      "ok": true,
+      "error": null,
+      "rows_added": 6933,
+      "rows_total": 6933,
+      "last_date": "2026-07-17"
+    },
+    "px_xlk": {
+      "ok": true,
+      "error": null,
+      "rows_added": 6933,
+      "rows_total": 6933,
+      "last_date": "2026-07-17"
+    },
+    "px_xlp": {
+      "ok": true,
+      "error": null,
+      "rows_added": 6933,
+      "rows_total": 6933,
+      "last_date": "2026-07-17"
+    },
+    "px_xlre": {
+      "ok": true,
+      "error": null,
+      "rows_added": 2708,
+      "rows_total": 2708,
+      "last_date": "2026-07-17"
+    },
+    "px_xlu": {
+      "ok": true,
+      "error": null,
+      "rows_added": 6933,
+      "rows_total": 6933,
+      "last_date": "2026-07-17"
+    },
+    "px_xlv": {
+      "ok": true,
+      "error": null,
+      "rows_added": 6933,
+      "rows_total": 6933,
+      "last_date": "2026-07-17"
+    },
+    "px_xly": {
+      "ok": true,
+      "error": null,
+      "rows_added": 6933,
+      "rows_total": 6933,
+      "last_date": "2026-07-17"
+    },
+    "cape": {
+      "ok": true,
+      "error": null,
+      "rows_added": 1519,
+      "rows_total": 1519,
+      "last_date": "2026-07-05"
+    },
+    "margin_debt": {
+      "ok": true,
+      "error": null,
+      "rows_added": 353,
+      "rows_total": 353,
+      "last_date": "2026-06-25"
+    },
+    "top10_concentration": {
+      "ok": true,
+      "error": null,
+      "rows_added": 1,
+      "rows_total": 1,
+      "last_date": "2026-07-20"
+    }
+  },
+  "indicators": {
+    "cape": {
+      "as_of": "2026-07-05",
+      "stale": false,
+      "counts_for_scoring": true,
+      "frequency": "monthly",
+      "years_of_history": 126.5
+    },
+    "excess_cape_yield": {
+      "as_of": null,
+      "stale": true,
+      "counts_for_scoring": false,
+      "frequency": "monthly",
+      "years_of_history": 0.0
+    },
+    "margin_debt_yoy": {
+      "as_of": "2026-06-25",
+      "stale": false,
+      "counts_for_scoring": true,
+      "frequency": "monthly",
+      "years_of_history": 28.3
+    },
+    "yield_curve": {
+      "as_of": null,
+      "stale": true,
+      "counts_for_scoring": false,
+      "frequency": "daily",
+      "years_of_history": 0.0
+    },
+    "nfci": {
+      "as_of": null,
+      "stale": true,
+      "counts_for_scoring": false,
+      "frequency": "weekly",
+      "years_of_history": 0.0
+    },
+    "top10_concentration": {
+      "as_of": "2026-07-20",
+      "stale": false,
+      "counts_for_scoring": false,
+      "frequency": "daily",
+      "years_of_history": 0.0
+    },
+    "vix_ratio": {
+      "as_of": "2026-07-17",
+      "stale": false,
+      "counts_for_scoring": true,
+      "frequency": "daily",
+      "years_of_history": 20.0
+    },
+    "trend_stress": {
+      "as_of": "2026-07-17",
+      "stale": false,
+      "counts_for_scoring": true,
+      "frequency": "daily",
+      "years_of_history": 45.5
+    },
+    "sectors_above_200dma": {
+      "as_of": "2026-07-17",
+      "stale": false,
+      "counts_for_scoring": true,
+      "frequency": "daily",
+      "years_of_history": 26.8
+    },
+    "rsp_spy_6m": {
+      "as_of": "2026-07-17",
+      "stale": false,
+      "counts_for_scoring": true,
+      "frequency": "daily",
+      "years_of_history": 22.7
+    },
+    "hy_oas": {
+      "as_of": null,
+      "stale": true,
+      "counts_for_scoring": false,
+      "frequency": "daily",
+      "years_of_history": 0.0
+    },
+    "hy_oas_63d": {
+      "as_of": null,
+      "stale": true,
+      "counts_for_scoring": false,
+      "frequency": "daily",
+      "years_of_history": 0.0
+    }
+  }
+}
