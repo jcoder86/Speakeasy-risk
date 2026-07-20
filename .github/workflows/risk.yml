@@ -1,0 +1,76 @@
+name: Daily risk pipeline
+
+on:
+  schedule:
+    # 05:30 UTC, ma-za: ruim na de US-close van de vorige handelsdag (22:00-23:00 ET
+    # afhankelijk van zomertijd). Zaterdag vangt de vrijdag-close.
+    - cron: "30 5 * * 1-6"
+  workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: "Volledige historie opnieuw ophalen (bootstrap)"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-risk
+  cancel-in-progress: false
+
+jobs:
+  risk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Installeer dependencies
+        run: pip install -r requirements.txt
+
+      - name: Tests
+        run: python -m pytest -q
+
+      # Incrementeel ophalen kijkt 30 dagen terug vanaf de laatst bekende datum per reeks;
+      # gemiste of mislukte runs worden dus vanzelf ingehaald zonder gaten in de historie.
+      # De stap faalt alleen als >50% van de meetellende indicatoren stale is.
+      - name: Data ophalen
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: |
+          if [ "${{ inputs.bootstrap }}" = "true" ]; then
+            python -m src.main --bootstrap
+          else
+            python -m src.main
+          fi
+
+      - name: Scoren en publiceren
+        run: python -m src.publish
+
+      # De AI-triggers worden geëvalueerd over alle dagen sinds de vorige succesvolle run
+      # (state/summarize_state.json). Falen van deze stap is niet-fataal: dan publiceren we
+      # zonder samenvatting.
+      - name: AI-samenvatting (alleen bij trigger of op maandag)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python -m src.summarize
+
+      - name: Commit resultaten
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add risk.json history.csv data/history/ state/
+          if git diff --cached --quiet; then
+            echo "Geen wijzigingen om te committen."
+          else
+            git commit -m "chore: dagelijkse risk-run $(date -u +%F) [skip ci]"
+            git push origin HEAD:${{ github.ref_name }}
+          fi

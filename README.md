@@ -4,9 +4,9 @@ Dagelijkse marktrisico-pipeline die een `risk.json` publiceert voor het JanApp-d
 Meet **marktfragiliteit**, voorspelt geen crashes — zie [`Risk_module_design.md`](Risk_module_design.md)
 voor de bindende specificatie.
 
-> **Status: fase 3 (validatierapport) afgerond.**
-> Zie [`VALIDATION.md`](VALIDATION.md) — daarop wordt beoordeeld of de module live gaat.
-> AI-laag + workflow (fase 4) volgen.
+> **Status: alle vier fasen afgerond — pipeline compleet.**
+> Zie [`VALIDATION.md`](VALIDATION.md) voor de onderbouwing; daarop wordt beoordeeld of de
+> module live gaat.
 
 ## Opzet
 
@@ -18,6 +18,8 @@ voor de bindende specificatie.
 | Afgeleide reeksen | `src/derive.py` |
 | Scoring (percentielen, regime, analogen) | `src/score.py` |
 | Publicatie (`risk.json`, `history.csv`) | `src/publish.py` |
+| AI-laag (alleen bij triggers of op maandag) | `src/summarize.py` |
+| Workflow (dagelijkse cron, ma-za 05:30 UTC) | `.github/workflows/risk.yml` |
 | Status van de laatste run | `state/fetch_status.json` |
 
 Scoren gebeurt met point-in-time percentielen: een expanderend venster over de volledige
@@ -65,6 +67,31 @@ Tests draaien (ook in dezelfde map):
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q
 ```
+
+## In productie zetten (GitHub Actions)
+
+1. **Secrets aanmaken** — op github.com in de repo `Speakeasy-risk`: *Settings → Secrets and
+   variables → Actions → New repository secret*. Maak `FRED_API_KEY` en `ANTHROPIC_API_KEY` aan.
+2. **Eerste run draaien** — in de *Actions*-tab: workflow "Daily risk pipeline" → *Run
+   workflow*. De bootstrap-checkbox is normaal niet nodig: de volledige historie is al
+   gecommit; een gewone run haalt incrementeel bij. Bootstrap alleen gebruiken als
+   `data/history/` opnieuw opgebouwd moet worden.
+3. **Daarna automatisch** — de cron draait ma-za om 05:30 UTC (na de US-close). Gemiste
+   dagen worden bij de eerstvolgende run ingehaald; AI-triggers worden over de ingehaalde
+   dagen mee-geëvalueerd.
+4. **Validatie draaien** — lokaal, in PowerShell in deze map:
+   `.\.venv\Scripts\python.exe -m src.validate` (schrijft `VALIDATION.md`).
+
+**`RISK_URL` voor JanApp** (zelfde patroon als `FEED_URL`; de repo is publiek, dus geen
+token nodig):
+
+```
+https://raw.githubusercontent.com/jcoder86/Speakeasy-risk/main/risk.json
+```
+
+De AI-samenvatting (`ai_summary_nl`) is gevuld na een trigger (regimewissel, pijlersprong
+>15 punten/maand, indicator-extreem) en op maandag (weeksynthese); andere dagen is hij
+`null` — dat is bewust, zie design doc §10.
 
 ## Databronnen en hun houdbaarheid
 
