@@ -32,6 +32,19 @@ def test_vix_ratio_deelt_alleen_op_gedeelde_datums():
     assert ratio.iloc[0] == pytest.approx(1.2)
 
 
+def test_curve_18m_min_is_achterwaarts_minimum():
+    """Een inversie van een jaar geleden moet vandaag nog in het minimum zitten."""
+    dates = _bdays(500)
+    values = np.full(500, 2.0)
+    values[200:210] = -0.5  # korte inversie, ruim binnen het laatste 378-daags venster
+    _write("yield_curve", dates, values)
+
+    minimum = derive._yield_curve_18m_min()
+
+    assert minimum.iloc[-1] == pytest.approx(-0.5)
+    assert minimum.index[0] == dates[377]  # pas na een vol venster een waarde
+
+
 def test_spread_63d_is_verschil_met_63_handelsdagen_terug():
     dates = _bdays(100)
     _write("baa_spread", dates, np.arange(100, dtype=float))

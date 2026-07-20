@@ -18,12 +18,14 @@ log = logging.getLogger(__name__)
 
 TRADING_DAYS_6M = 126
 TRADING_DAYS_52W = 252
+TRADING_DAYS_18M = 378
 MA_WINDOW = 200
 HY_CHANGE_WINDOW = 63
 MIN_SECTORS = 5
 
 # Afgeleide reeksen die de scoring gebruikt, plus twee losse componenten voor het dashboard.
 DERIVED = [
+    "yield_curve_18m_min",
     "excess_cape_yield",
     "margin_debt_yoy",
     "vix_ratio",
@@ -68,6 +70,7 @@ def run() -> dict[str, int]:
 
 def _builders() -> dict[str, callable]:
     return {
+        "yield_curve_18m_min": _yield_curve_18m_min,
         "excess_cape_yield": _excess_cape_yield,
         "margin_debt_yoy": _margin_debt_yoy,
         "vix_ratio": _vix_ratio,
@@ -79,6 +82,21 @@ def _builders() -> dict[str, callable]:
         "gspc_dd_52w": lambda: _trend_components()[1],
         "trend_stress": _trend_stress,
     }
+
+
+def _yield_curve_18m_min() -> pd.Series:
+    """Diepste stand van de 10j-3m-curve in de afgelopen 18 maanden.
+
+    De curve leidt met 6-18 maanden (design doc §6). Het niveau van vandaag scoren gooit die
+    lead weg en keert hem in een crisis zelfs om: zodra de Fed in paniek verlaagt wordt de
+    curve steil en zou het niveau "veilig" zeggen, precies terwijl het risico van de eerdere
+    inversie zich materialiseert (oktober 2008). Het achterwaartse minimum houdt een recente
+    inversie risicovol totdat de gedocumenteerde lag verstreken is. Venster kijkt alleen terug.
+    """
+    curve = _series("yield_curve")
+    if len(curve) < TRADING_DAYS_18M:
+        return pd.Series(dtype="float64")
+    return curve.rolling(TRADING_DAYS_18M, min_periods=TRADING_DAYS_18M).min().dropna()
 
 
 def _excess_cape_yield() -> pd.Series:

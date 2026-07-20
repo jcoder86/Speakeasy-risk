@@ -1,0 +1,194 @@
+{
+  "generated_at": "2026-07-20T13:11:19+00:00",
+  "regime": "fragile_calm",
+  "regime_label_nl": "Fragiele rust",
+  "regime_since": "2025-11-24",
+  "fragility": {
+    "score": 85,
+    "pillars": {
+      "valuation": 99,
+      "credit_slow": 54,
+      "positioning": 97
+    }
+  },
+  "stress": {
+    "score": 42,
+    "pillars": {
+      "volatility": 49,
+      "breadth": 50,
+      "credit_fast": 25
+    }
+  },
+  "drivers": [
+    {
+      "indicator": "vix_ratio",
+      "percentile": 58,
+      "delta_1m": 40,
+      "note_nl": "VIX-termijnstructuur staat op het 58e risicopercentiel (+40 punten in een maand) — inversie betekent dat de markt nú meer vreest dan straks."
+    },
+    {
+      "indicator": "baa_spread_63d",
+      "percentile": 38,
+      "delta_1m": 25,
+      "note_nl": "Baa-spread, 63d-verandering staat op het 38e risicopercentiel (+25 punten in een maand) — verwijdende spreads gaan aandelenstress vaak vooraf."
+    },
+    {
+      "indicator": "trend_stress",
+      "percentile": 39,
+      "delta_1m": 13,
+      "note_nl": "Trendstatus S&P 500 staat op het 39e risicopercentiel (+13 punten in een maand) — een koers onder het 200-daags gemiddelde bevestigt de downtrend."
+    }
+  ],
+  "analogs": [
+    {
+      "period": "1997-03",
+      "fwd_12m_max_dd": -0.108
+    },
+    {
+      "period": "1997-11",
+      "fwd_12m_max_dd": -0.193
+    },
+    {
+      "period": "1998-01",
+      "fwd_12m_max_dd": -0.193
+    },
+    {
+      "period": "1998-05",
+      "fwd_12m_max_dd": -0.193
+    },
+    {
+      "period": "1998-12",
+      "fwd_12m_max_dd": -0.121
+    },
+    {
+      "period": "1999-02",
+      "fwd_12m_max_dd": -0.121
+    },
+    {
+      "period": "1999-03",
+      "fwd_12m_max_dd": -0.121
+    },
+    {
+      "period": "1999-11",
+      "fwd_12m_max_dd": -0.139
+    },
+    {
+      "period": "2000-01",
+      "fwd_12m_max_dd": -0.172
+    },
+    {
+      "period": "2007-02",
+      "fwd_12m_max_dd": -0.163
+    },
+    {
+      "period": "2007-04",
+      "fwd_12m_max_dd": -0.186
+    },
+    {
+      "period": "2007-06",
+      "fwd_12m_max_dd": -0.186
+    },
+    {
+      "period": "2024-01",
+      "fwd_12m_max_dd": -0.085
+    },
+    {
+      "period": "2024-04",
+      "fwd_12m_max_dd": -0.189
+    },
+    {
+      "period": "2024-06",
+      "fwd_12m_max_dd": -0.189
+    },
+    {
+      "period": "2024-08",
+      "fwd_12m_max_dd": -0.189
+    },
+    {
+      "period": "2024-09",
+      "fwd_12m_max_dd": -0.189
+    },
+    {
+      "period": "2024-10",
+      "fwd_12m_max_dd": -0.189
+    },
+    {
+      "period": "2024-12",
+      "fwd_12m_max_dd": -0.189
+    },
+    {
+      "period": "2025-01",
+      "fwd_12m_max_dd": -0.189
+    }
+  ],
+  "ai_summary_nl": null,
+  "history_url": "https://raw.githubusercontent.com/jcoder86/Speakeasy-risk/main/history.csv",
+  "indicators": {
+    "cape": {
+      "percentile": 99,
+      "stale": false,
+      "as_of": "2026-07-05",
+      "counts_for_scoring": true
+    },
+    "excess_cape_yield": {
+      "percentile": 100,
+      "stale": false,
+      "as_of": "2026-07-05",
+      "counts_for_scoring": true
+    },
+    "yield_curve_18m_min": {
+      "percentile": 74,
+      "stale": false,
+      "as_of": "2026-07-17",
+      "counts_for_scoring": true
+    },
+    "nfci": {
+      "percentile": 34,
+      "stale": false,
+      "as_of": "2026-07-10",
+      "counts_for_scoring": true
+    },
+    "margin_debt_yoy": {
+      "percentile": 97,
+      "stale": false,
+      "as_of": "2026-06-25",
+      "counts_for_scoring": true
+    },
+    "vix_ratio": {
+      "percentile": 58,
+      "stale": false,
+      "as_of": "2026-07-17",
+      "counts_for_scoring": true
+    },
+    "trend_stress": {
+      "percentile": 39,
+      "stale": false,
+      "as_of": "2026-07-17",
+      "counts_for_scoring": true
+    },
+    "sectors_above_200dma": {
+      "percentile": 50,
+      "stale": false,
+      "as_of": "2026-07-17",
+      "counts_for_scoring": true
+    },
+    "rsp_spy_6m": {
+      "percentile": 49,
+      "stale": false,
+      "as_of": "2026-07-17",
+      "counts_for_scoring": true
+    },
+    "baa_spread": {
+      "percentile": 12,
+      "stale": false,
+      "as_of": "2026-07-16",
+      "counts_for_scoring": true
+    },
+    "baa_spread_63d": {
+      "percentile": 38,
+      "stale": false,
+      "as_of": "2026-07-16",
+      "counts_for_scoring": true
+    }
+  }
+}

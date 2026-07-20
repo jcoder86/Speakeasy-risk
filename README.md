@@ -4,8 +4,8 @@ Dagelijkse marktrisico-pipeline die een `risk.json` publiceert voor het JanApp-d
 Meet **marktfragiliteit**, voorspelt geen crashes — zie [`Risk_module_design.md`](Risk_module_design.md)
 voor de bindende specificatie.
 
-> **Status: fase 1 (fetchers + historische backfill) afgerond.**
-> Scoring, validatie en de AI-laag volgen in fase 2 t/m 4.
+> **Status: fase 2 (scoring-engine + risk.json) afgerond.**
+> Validatierapport (fase 3) en AI-laag + workflow (fase 4) volgen.
 
 ## Opzet
 
@@ -15,7 +15,15 @@ voor de bindende specificatie.
 | Fetchers (één module per bron) | `src/fetch/` |
 | Append-only historie | `data/history/<indicator>.csv` |
 | Afgeleide reeksen | `src/derive.py` |
+| Scoring (percentielen, regime, analogen) | `src/score.py` |
+| Publicatie (`risk.json`, `history.csv`) | `src/publish.py` |
 | Status van de laatste run | `state/fetch_status.json` |
+
+Scoren gebeurt met point-in-time percentielen: een expanderend venster over de volledige
+eigen historie van elke indicator (CAPE terug tot 1881, NFCI tot 1971), nooit met data van
+later. Regimes worden vanaf 1990 berekend, met 5 dagen hysterese op de drempel van 60.
+Valt een indicator of pijler uit (te jong, bron stuk), dan hernormaliseren de gewichten
+over wat er wél is.
 
 ## Lokaal draaien
 
@@ -75,7 +83,16 @@ zonder de run te breken: dan blijft de laatst bekende waarde staan en wordt de i
 - **Percentielvensters gebruiken de huidige datavintage.** FRED reviseert NFCI; die revisies
   zijn niet gratis als vintage beschikbaar. De store is daarom append-only: een eenmaal
   vastgelegde waarde blijft staan, zodat de historie vanaf nu wél echt point-in-time is.
-- **Indicatoren starten op verschillende momenten.** HY OAS begint in 1996, de reële rente
-  (en daarmee Excess CAPE Yield) in 2003, margin debt in 1997, RSP in 2003. Met de 10-jaarsregel
-  betekent dat: geen kredietstress-pijler vóór 2007 en geen ECY vóór 2013. Dit raakt de
-  event-studie van 2000 en wordt in fase 3 expliciet gerapporteerd.
+- **Indicatoren starten op verschillende momenten.** De reële rente (en daarmee Excess CAPE
+  Yield) begint in 2003, margin debt in 1997, RSP in 2003, VIX3M in 2006. Met de 10-jaarsregel
+  betekent dat o.a.: geen ECY vóór 2013, geen VIX-ratio vóór 2016 en geen sectorbreedte vóór
+  2009. Gewichten hernormaliseren dan; welke onderdelen wanneer meetelden wordt in fase 3
+  gerapporteerd.
+- **HY OAS is bij FRED afgeknot tot ~3 jaar** (ICE-licentie, ook via ALFRED dicht; geverifieerd
+  juli 2026). De kredietstress-pijler scoort daarom op de Moody's Baa-spread (BAA10Y, volledig
+  sinds 1986) — zelfde mechanisme, wél valideerbaar over alle vier de episodes. HY OAS wordt
+  blijvend verzameld en kan na tien jaar eigen historie terugkeren.
+- **De rentecurve wordt gescoord op zijn diepste stand van de afgelopen 18 maanden**, niet op
+  het dagniveau. De curve leidt met 6-18 maanden (design doc §6); het dagniveau keert in een
+  crisis om zodra paniekverlagingen de curve steil maken — oktober 2008 stond daardoor op
+  risicopercentiel 1, precies terwijl het risico van de 2006-07-inversie zich materialiseerde.

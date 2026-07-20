@@ -37,7 +37,7 @@ FREQUENCY = {
     "cape": "monthly",
     "excess_cape_yield": "monthly",
     "margin_debt_yoy": "monthly",
-    "yield_curve": "daily",
+    "yield_curve_18m_min": "daily",
     "nfci": "weekly",
     "top10_concentration": "daily",
     "vix_ratio": "daily",

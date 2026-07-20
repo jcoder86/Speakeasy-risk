@@ -78,7 +78,11 @@ pillars:
   credit_slow:
     axis: fragility
     indicators:
-      yield_curve: {weight: 0.5, direction: low}
+      # Diepste curve-stand van de afgelopen 18 maanden i.p.v. het dagniveau: de curve leidt
+      # met 6-18 maanden (design doc §6). Het dagniveau keert in een crisis zelfs om — na
+      # paniekverlagingen wordt de curve steil en leest "veilig" precies terwijl het risico
+      # van de eerdere inversie zich materialiseert (oktober 2008 stond op risicopercentiel 1).
+      yield_curve_18m_min: {weight: 0.5, direction: low}
       nfci: {weight: 0.5, direction: high}
   positioning:
     axis: fragility
