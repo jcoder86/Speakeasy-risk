@@ -30,6 +30,7 @@ DERIVED = [
     "sectors_above_200dma",
     "rsp_spy_6m",
     "hy_oas_63d",
+    "baa_spread_63d",
     "trend_stress",
     "gspc_dist_200dma",
     "gspc_dd_52w",
@@ -72,7 +73,8 @@ def _builders() -> dict[str, callable]:
         "vix_ratio": _vix_ratio,
         "sectors_above_200dma": _sectors_above_200dma,
         "rsp_spy_6m": _rsp_spy_6m,
-        "hy_oas_63d": _hy_oas_63d,
+        "hy_oas_63d": lambda: _change_63d("hy_oas"),
+        "baa_spread_63d": lambda: _change_63d("baa_spread"),
         "gspc_dist_200dma": lambda: _trend_components()[0],
         "gspc_dd_52w": lambda: _trend_components()[1],
         "trend_stress": _trend_stress,
@@ -161,12 +163,12 @@ def _rsp_spy_6m() -> pd.Series:
     return ((rsp_ret - spy_ret) * 100.0).dropna()
 
 
-def _hy_oas_63d() -> pd.Series:
-    """63-daagse verandering van de HY OAS, in procentpunten."""
-    oas = _series("hy_oas")
-    if len(oas) <= HY_CHANGE_WINDOW:
+def _change_63d(name: str) -> pd.Series:
+    """63-daagse verandering van een spreadreeks, in procentpunten."""
+    spread = _series(name)
+    if len(spread) <= HY_CHANGE_WINDOW:
         return pd.Series(dtype="float64")
-    return (oas - oas.shift(HY_CHANGE_WINDOW)).dropna()
+    return (spread - spread.shift(HY_CHANGE_WINDOW)).dropna()
 
 
 def _trend_components() -> tuple[pd.Series, pd.Series]:

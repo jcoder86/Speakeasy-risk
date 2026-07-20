@@ -37,7 +37,14 @@ tickers:
   sectors: [XLB, XLC, XLE, XLF, XLI, XLK, XLP, XLRE, XLU, XLV, XLY]
 
 fred_series:
-  hy_oas: BAMLH0A0HYM2      # ICE BofA US High Yield OAS
+  # FRED serveert de ICE BofA-reeks (BAMLH0A0HYM2) nog maar met een voortrollend venster van
+  # ~3 jaar (licentiebeperking, geverifieerd juli 2026; ook ALFRED-vintages zijn dicht).
+  # Voor de scoring gebruikt de kredietstress-pijler daarom de Moody's Baa-spread (BAA10Y,
+  # volledige daghistorie sinds 1986): zelfde mechanisme, wél valideerbaar over 2000/2008/2020/2022.
+  # HY OAS wordt gewoon opgehaald; de append-only store bouwt zo zijn eigen historie op en de
+  # indicator kan terugkeren zodra hij 10 jaar eigen data heeft.
+  hy_oas: BAMLH0A0HYM2      # ICE BofA US High Yield OAS (verzamelen, telt nog niet mee)
+  baa_spread: BAA10Y        # Moody's Baa t.o.v. 10j Treasury — scoring-indicator kredietstress
   yield_curve: T10Y3M       # 10-jaars minus 3-maands
   nfci: NFCI                # Chicago Fed National Financial Conditions Index
   real_10y: DFII10          # 10-jaars TIPS-rente (reëel)
@@ -91,5 +98,5 @@ pillars:
   credit_fast:
     axis: stress
     indicators:
-      hy_oas: {weight: 0.5, direction: high}
-      hy_oas_63d: {weight: 0.5, direction: high}
+      baa_spread: {weight: 0.5, direction: high}
+      baa_spread_63d: {weight: 0.5, direction: high}

@@ -32,11 +32,11 @@ def test_vix_ratio_deelt_alleen_op_gedeelde_datums():
     assert ratio.iloc[0] == pytest.approx(1.2)
 
 
-def test_hy_oas_63d_is_verschil_met_63_handelsdagen_terug():
+def test_spread_63d_is_verschil_met_63_handelsdagen_terug():
     dates = _bdays(100)
-    _write("hy_oas", dates, np.arange(100, dtype=float))
+    _write("baa_spread", dates, np.arange(100, dtype=float))
 
-    change = derive._hy_oas_63d()
+    change = derive._change_63d("baa_spread")
 
     assert change.iloc[0] == pytest.approx(63.0)
     assert len(change) == 100 - 63

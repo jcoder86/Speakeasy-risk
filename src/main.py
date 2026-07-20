@@ -44,8 +44,8 @@ FREQUENCY = {
     "trend_stress": "daily",
     "sectors_above_200dma": "daily",
     "rsp_spy_6m": "daily",
-    "hy_oas": "daily",
-    "hy_oas_63d": "daily",
+    "baa_spread": "daily",
+    "baa_spread_63d": "daily",
 }
 
 
