@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T08:49:03+00:00",
+  "generated_at": "2026-08-04T08:03:26+00:00",
   "ok": true,
   "message": "5/11 meetellende indicatoren stale (45%): yield_curve_18m_min, nfci, vix_ratio, baa_spread, baa_spread_63d",
   "sources": {
@@ -49,8 +49,8 @@
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 9214,
-      "last_date": "2026-08-03"
+      "rows_total": 9215,
+      "last_date": "2026-08-04"
     },
     "px_vix3m": {
       "ok": true,
@@ -168,8 +168,8 @@
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 13,
-      "last_date": "2026-08-03"
+      "rows_total": 14,
+      "last_date": "2026-08-04"
     }
   },
   "indicators": {
@@ -209,7 +209,7 @@
       "years_of_history": 55.5
     },
     "top10_concentration": {
-      "as_of": "2026-08-03",
+      "as_of": "2026-08-04",
       "stale": false,
       "counts_for_scoring": false,
       "frequency": "daily",
