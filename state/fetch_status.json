@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T08:02:29+00:00",
+  "generated_at": "2026-08-07T06:50:38+00:00",
   "ok": true,
   "message": "5/11 meetellende indicatoren stale (45%): yield_curve_18m_min, nfci, vix_ratio, baa_spread, baa_spread_63d",
   "sources": {
@@ -42,13 +42,13 @@
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 11743,
-      "last_date": "2026-08-05"
+      "rows_total": 11744,
+      "last_date": "2026-08-06"
     },
     "px_vix": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 9217,
       "last_date": "2026-08-06"
     },
@@ -63,92 +63,92 @@
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 8436,
-      "last_date": "2026-08-05"
+      "rows_total": 8437,
+      "last_date": "2026-08-06"
     },
     "px_rsp": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 5853,
-      "last_date": "2026-08-05"
+      "rows_total": 5854,
+      "last_date": "2026-08-06"
     },
     "px_xlb": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 6946,
-      "last_date": "2026-08-05"
+      "rows_total": 6947,
+      "last_date": "2026-08-06"
     },
     "px_xlc": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 2043,
-      "last_date": "2026-08-05"
+      "rows_total": 2044,
+      "last_date": "2026-08-06"
     },
     "px_xle": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 6946,
-      "last_date": "2026-08-05"
+      "rows_total": 6947,
+      "last_date": "2026-08-06"
     },
     "px_xlf": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 6946,
-      "last_date": "2026-08-05"
+      "rows_total": 6947,
+      "last_date": "2026-08-06"
     },
     "px_xli": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 6946,
-      "last_date": "2026-08-05"
+      "rows_total": 6947,
+      "last_date": "2026-08-06"
     },
     "px_xlk": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 6946,
-      "last_date": "2026-08-05"
+      "rows_total": 6947,
+      "last_date": "2026-08-06"
     },
     "px_xlp": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 6946,
-      "last_date": "2026-08-05"
+      "rows_total": 6947,
+      "last_date": "2026-08-06"
     },
     "px_xlre": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 2721,
-      "last_date": "2026-08-05"
+      "rows_total": 2722,
+      "last_date": "2026-08-06"
     },
     "px_xlu": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 6946,
-      "last_date": "2026-08-05"
+      "rows_total": 6947,
+      "last_date": "2026-08-06"
     },
     "px_xlv": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 6946,
-      "last_date": "2026-08-05"
+      "rows_total": 6947,
+      "last_date": "2026-08-06"
     },
     "px_xly": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 6946,
-      "last_date": "2026-08-05"
+      "rows_total": 6947,
+      "last_date": "2026-08-06"
     },
     "cape": {
       "ok": true,
@@ -168,8 +168,8 @@
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 16,
-      "last_date": "2026-08-06"
+      "rows_total": 17,
+      "last_date": "2026-08-07"
     }
   },
   "indicators": {
@@ -209,7 +209,7 @@
       "years_of_history": 55.5
     },
     "top10_concentration": {
-      "as_of": "2026-08-06",
+      "as_of": "2026-08-07",
       "stale": false,
       "counts_for_scoring": false,
       "frequency": "daily",
@@ -223,21 +223,21 @@
       "years_of_history": 20.0
     },
     "trend_stress": {
-      "as_of": "2026-08-05",
+      "as_of": "2026-08-06",
       "stale": false,
       "counts_for_scoring": true,
       "frequency": "daily",
       "years_of_history": 45.6
     },
     "sectors_above_200dma": {
-      "as_of": "2026-08-05",
+      "as_of": "2026-08-06",
       "stale": false,
       "counts_for_scoring": true,
       "frequency": "daily",
       "years_of_history": 26.8
     },
     "rsp_spy_6m": {
-      "as_of": "2026-08-05",
+      "as_of": "2026-08-06",
       "stale": false,
       "counts_for_scoring": true,
       "frequency": "daily",
