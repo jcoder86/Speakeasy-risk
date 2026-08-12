@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T06:30:16+00:00",
+  "generated_at": "2026-08-12T06:55:40+00:00",
   "regime": "fragile_calm",
   "regime_label_nl": "Fragiele rust",
   "regime_since": "2025-11-25",
@@ -12,44 +12,56 @@
     }
   },
   "stress": {
-    "score": 43,
+    "score": 33,
     "pillars": {
-      "volatility": 36,
-      "breadth": 65,
+      "volatility": 13,
+      "breadth": 59,
       "credit_fast": 25
     }
   },
   "drivers": [
     {
       "indicator": "vix_ratio",
-      "percentile": 56,
-      "delta_1m": 48,
-      "note_nl": "VIX-termijnstructuur staat op het 56e risicopercentiel (+48 punten in een maand) — inversie betekent dat de markt nú meer vreest dan straks."
+      "percentile": 7,
+      "delta_1m": -30,
+      "note_nl": "VIX-termijnstructuur staat op het 7e risicopercentiel (-30 punten in een maand) — inversie betekent dat de markt nú meer vreest dan straks."
     },
     {
       "indicator": "rsp_spy_6m",
-      "percentile": 80,
-      "delta_1m": 40,
-      "note_nl": "Equal-weight vs cap-weight staat op het 80e risicopercentiel (+40 punten in een maand) — de index stijgt harder dan het gemiddelde aandeel: smal leiderschap."
+      "percentile": 69,
+      "delta_1m": 27,
+      "note_nl": "Equal-weight vs cap-weight staat op het 69e risicopercentiel (+27 punten in een maand) — de index stijgt harder dan het gemiddelde aandeel: smal leiderschap."
     },
     {
-      "indicator": "sectors_above_200dma",
-      "percentile": 50,
-      "delta_1m": 15,
-      "note_nl": "Sectorbreedte staat op het 50e risicopercentiel (+15 punten in een maand) — steeds minder sectoren dragen de trend."
+      "indicator": "trend_stress",
+      "percentile": 19,
+      "delta_1m": -11,
+      "note_nl": "Trendstatus S&P 500 staat op het 19e risicopercentiel (-11 punten in een maand) — een koers onder het 200-daags gemiddelde bevestigt de downtrend."
     }
   ],
   "analogs": [
     {
-      "period": "1997-03",
+      "period": "1996-12",
       "fwd_12m_max_dd": -0.108
     },
     {
-      "period": "1997-11",
+      "period": "1997-04",
+      "fwd_12m_max_dd": -0.108
+    },
+    {
+      "period": "1997-12",
       "fwd_12m_max_dd": -0.193
     },
     {
-      "period": "1998-01",
+      "period": "1998-02",
+      "fwd_12m_max_dd": -0.193
+    },
+    {
+      "period": "1998-03",
+      "fwd_12m_max_dd": -0.193
+    },
+    {
+      "period": "1998-04",
       "fwd_12m_max_dd": -0.193
     },
     {
@@ -57,11 +69,11 @@
       "fwd_12m_max_dd": -0.193
     },
     {
-      "period": "1998-12",
-      "fwd_12m_max_dd": -0.121
+      "period": "1998-06",
+      "fwd_12m_max_dd": -0.193
     },
     {
-      "period": "1999-02",
+      "period": "1999-01",
       "fwd_12m_max_dd": -0.121
     },
     {
@@ -69,27 +81,35 @@
       "fwd_12m_max_dd": -0.121
     },
     {
-      "period": "1999-11",
-      "fwd_12m_max_dd": -0.139
+      "period": "1999-04",
+      "fwd_12m_max_dd": -0.121
     },
     {
-      "period": "2000-01",
-      "fwd_12m_max_dd": -0.172
+      "period": "1999-06",
+      "fwd_12m_max_dd": -0.121
     },
     {
-      "period": "2007-02",
-      "fwd_12m_max_dd": -0.163
+      "period": "2006-10",
+      "fwd_12m_max_dd": -0.094
     },
     {
-      "period": "2007-04",
+      "period": "2006-11",
+      "fwd_12m_max_dd": -0.101
+    },
+    {
+      "period": "2006-12",
+      "fwd_12m_max_dd": -0.101
+    },
+    {
+      "period": "2007-06",
       "fwd_12m_max_dd": -0.186
     },
     {
-      "period": "2024-01",
-      "fwd_12m_max_dd": -0.085
+      "period": "2024-03",
+      "fwd_12m_max_dd": -0.101
     },
     {
-      "period": "2024-04",
+      "period": "2024-05",
       "fwd_12m_max_dd": -0.189
     },
     {
@@ -97,31 +117,11 @@
       "fwd_12m_max_dd": -0.189
     },
     {
-      "period": "2024-08",
-      "fwd_12m_max_dd": -0.189
-    },
-    {
-      "period": "2024-09",
-      "fwd_12m_max_dd": -0.189
-    },
-    {
-      "period": "2024-10",
-      "fwd_12m_max_dd": -0.189
-    },
-    {
-      "period": "2024-12",
-      "fwd_12m_max_dd": -0.189
-    },
-    {
-      "period": "2025-01",
-      "fwd_12m_max_dd": -0.189
-    },
-    {
       "period": "2025-07",
       "fwd_12m_max_dd": -0.091
     }
   ],
-  "ai_summary_nl": "De pijler volatiliteit is de afgelopen maand fors opgelopen, +21 percentielpunten, en dat wordt vooral gedreven door de VIX-termijnstructuur die van een rustige positie naar het 56e risicopercentiel schoot (+48 punten): een inversie die aangeeft dat beleggers de nabije toekomst nu onrustiger inprijzen dan de verdere toekomst. Dit gebeurt niet geïsoleerd — ook de verhouding equal-weight versus cap-weight (80e percentiel, +40 punten) en de sectorbreedte (50e percentiel, +15 punten) wijzen op smaller wordend leiderschap onder de oppervlakte, terwijl fragiliteit al maanden hoog blijft staan door extreme waardering en positionering. De meest verwante historische episodes zijn de reeks uit 2024, met een vergelijkbare combinatie van hoge fragiliteit en oplopende stress; daarop volgde doorgaans een terugval van ongeveer 18 tot 19 procent binnen twaalf maanden, al herstelden markten in die periode ook relatief snel. Oudere analogen uit 1997-2000 en 2007 laten een vergelijkbare spreiding zien, met dalingen tussen de 11 en 19 procent, wat aangeeft dat dit patroon van smal leiderschap en oplopende volatiliteitsangst niet uniek is maar wel vaker gepa",
+  "ai_summary_nl": null,
   "history_url": "https://raw.githubusercontent.com/jcoder86/Speakeasy-risk/main/history.csv",
   "indicators": {
     "cape": {
@@ -155,27 +155,27 @@
       "counts_for_scoring": true
     },
     "vix_ratio": {
-      "percentile": 56,
-      "stale": true,
-      "as_of": "2026-07-20",
+      "percentile": 7,
+      "stale": false,
+      "as_of": "2026-08-11",
       "counts_for_scoring": true
     },
     "trend_stress": {
-      "percentile": 16,
+      "percentile": 19,
       "stale": false,
-      "as_of": "2026-08-10",
+      "as_of": "2026-08-11",
       "counts_for_scoring": true
     },
     "sectors_above_200dma": {
       "percentile": 50,
       "stale": false,
-      "as_of": "2026-08-10",
+      "as_of": "2026-08-11",
       "counts_for_scoring": true
     },
     "rsp_spy_6m": {
-      "percentile": 80,
+      "percentile": 69,
       "stale": false,
-      "as_of": "2026-08-10",
+      "as_of": "2026-08-11",
       "counts_for_scoring": true
     },
     "baa_spread": {
