@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T06:56:00+00:00",
+  "generated_at": "2026-08-15T05:54:10+00:00",
   "regime": "fragile_calm",
   "regime_label_nl": "Fragiele rust",
   "regime_since": "2025-11-25",
@@ -14,7 +14,7 @@
   "stress": {
     "score": 33,
     "pillars": {
-      "volatility": 8,
+      "volatility": 9,
       "breadth": 65,
       "credit_fast": 25
     }
@@ -22,24 +22,28 @@
   "drivers": [
     {
       "indicator": "rsp_spy_6m",
-      "percentile": 79,
-      "delta_1m": 24,
-      "note_nl": "Equal-weight vs cap-weight staat op het 79e risicopercentiel (+24 punten in een maand) — de index stijgt harder dan het gemiddelde aandeel: smal leiderschap."
+      "percentile": 80,
+      "delta_1m": 39,
+      "note_nl": "Equal-weight vs cap-weight staat op het 80e risicopercentiel (+39 punten in een maand) — de index stijgt harder dan het gemiddelde aandeel: smal leiderschap."
+    },
+    {
+      "indicator": "vix_ratio",
+      "percentile": 3,
+      "delta_1m": -26,
+      "note_nl": "VIX-termijnstructuur staat op het 3e risicopercentiel (-26 punten in een maand) — inversie betekent dat de markt nú meer vreest dan straks."
     },
     {
       "indicator": "sectors_above_200dma",
       "percentile": 50,
       "delta_1m": 15,
       "note_nl": "Sectorbreedte staat op het 50e risicopercentiel (+15 punten in een maand) — steeds minder sectoren dragen de trend."
-    },
-    {
-      "indicator": "vix_ratio",
-      "percentile": 3,
-      "delta_1m": -11,
-      "note_nl": "VIX-termijnstructuur staat op het 3e risicopercentiel (-11 punten in een maand) — inversie betekent dat de markt nú meer vreest dan straks."
     }
   ],
   "analogs": [
+    {
+      "period": "1996-03",
+      "fwd_12m_max_dd": -0.076
+    },
     {
       "period": "1996-12",
       "fwd_12m_max_dd": -0.108
@@ -58,10 +62,6 @@
     },
     {
       "period": "1998-03",
-      "fwd_12m_max_dd": -0.193
-    },
-    {
-      "period": "1998-04",
       "fwd_12m_max_dd": -0.193
     },
     {
@@ -93,10 +93,6 @@
       "fwd_12m_max_dd": -0.094
     },
     {
-      "period": "2006-12",
-      "fwd_12m_max_dd": -0.101
-    },
-    {
       "period": "2007-04",
       "fwd_12m_max_dd": -0.186
     },
@@ -117,11 +113,15 @@
       "fwd_12m_max_dd": -0.189
     },
     {
+      "period": "2024-12",
+      "fwd_12m_max_dd": -0.189
+    },
+    {
       "period": "2025-07",
       "fwd_12m_max_dd": -0.091
     }
   ],
-  "ai_summary_nl": "De marktbreedte-pijler is deze maand fors verzwakt: de gelijkgewogen index blijft steeds verder achter bij de cap-gewogen S&P (79e risicopercentiel, +24 punten), en ook het aantal sectoren boven hun 200-daags gemiddelde daalt (50e percentiel, +15 punten) — het is dus een steeds smaller groepje grote namen dat de markt optrekt. Opvallend is dat de VIX-termijnstructuur juist verder invert (3e percentiel), wat betekent dat kortetermijnangst nu al hoger ligt dan verwachte angst op langere termijn, terwijl de volatiliteit zelf laag blijft — een typisch kenmerk van 'Fragiele rust': de oppervlakte is kalm, de onderstroom smaller. Vergelijkbare combinaties van hoge waardering, hoge positionering en verslechterende breedte deden zich eerder voor rond 1997-1998, 1999 en 2006-2007, periodes waarna de markt binnen twaalf maanden een maximale terugval liet zien van doorgaans 10 tot 19 procent, zonder dat dit altijd meteen zichtbaar werd in de eerste weken na het signaal. Ook de recentere analogieën uit 2024 en juli 2025 laten een vergelijkbaar patroon zien, met terugvallen in dezelfde orde van grootte. Per saldo blijft de stressme",
+  "ai_summary_nl": "De pijler volatiliteit is de afgelopen maand fors gezakt, met -19 percentielpunten, en dat wordt vooral gedreven door de VIX-termijnstructuur die naar het 3e risicopercentiel dook: die inversie laat zien dat de markt op dit moment meer onrust inprijst voor de korte termijn dan voor de rest van het jaar, terwijl de stress-score als geheel juist laag blijft (33). Tegelijk verbreedt de fragiliteit zich niet gezond: leiderschap is smal (equal-weight vs cap-weight op het 80e percentiel, +39 in een maand) en sectorbreedte verzwakt geleidelijk, wat past bij het label Fragiele rust dat al sinds eind november aanhoudt. Een vergelijkbare combinatie van hoge waardering, geconcentreerde positionering en een omslaande volatiliteitscurve deed zich eerder voor rond juni 2007 en mei 2024; in beide gevallen bleef de markt op het oog kalm, maar volgde binnen twaalf maanden alsnog een terugval van circa 18 à 19 procent. Er zijn ook mildere analoge periodes, zoals maart 1996 of juli 2025, waar de daaropvolgende terugval beperkt bleef tot zo'n 8 tot 10 procent, wat toont dat een dergelijke trigger niet automatisch tot een scherpe correctie leidt.",
   "history_url": "https://raw.githubusercontent.com/jcoder86/Speakeasy-risk/main/history.csv",
   "indicators": {
     "cape": {
@@ -161,21 +161,21 @@
       "counts_for_scoring": true
     },
     "trend_stress": {
-      "percentile": 14,
+      "percentile": 16,
       "stale": false,
-      "as_of": "2026-08-13",
+      "as_of": "2026-08-14",
       "counts_for_scoring": true
     },
     "sectors_above_200dma": {
       "percentile": 50,
       "stale": false,
-      "as_of": "2026-08-13",
+      "as_of": "2026-08-14",
       "counts_for_scoring": true
     },
     "rsp_spy_6m": {
-      "percentile": 79,
+      "percentile": 80,
       "stale": false,
-      "as_of": "2026-08-13",
+      "as_of": "2026-08-14",
       "counts_for_scoring": true
     },
     "baa_spread": {
