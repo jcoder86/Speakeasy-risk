@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T10:20:48+00:00",
+  "generated_at": "2026-09-18T10:01:41+00:00",
   "regime": "fragile_calm",
   "regime_label_nl": "Fragiele rust",
   "regime_since": "2025-11-25",
@@ -12,31 +12,31 @@
     }
   },
   "stress": {
-    "score": 49,
+    "score": 48,
     "pillars": {
-      "volatility": 40,
-      "breadth": 78,
+      "volatility": 37,
+      "breadth": 80,
       "credit_fast": 25
     }
   },
   "drivers": [
     {
-      "indicator": "trend_stress",
-      "percentile": 51,
-      "delta_1m": 24,
-      "note_nl": "Trendstatus S&P 500 staat op het 51e risicopercentiel (+24 punten in een maand) — een koers onder het 200-daags gemiddelde bevestigt de downtrend."
-    },
-    {
       "indicator": "vix_ratio",
-      "percentile": 30,
-      "delta_1m": 18,
-      "note_nl": "VIX-termijnstructuur staat op het 30e risicopercentiel (+18 punten in een maand) — inversie betekent dat de markt nú meer vreest dan straks."
+      "percentile": 32,
+      "delta_1m": 26,
+      "note_nl": "VIX-termijnstructuur staat op het 32e risicopercentiel (+26 punten in een maand) — inversie betekent dat de markt nú meer vreest dan straks."
     },
     {
       "indicator": "sectors_above_200dma",
       "percentile": 69,
-      "delta_1m": 8,
-      "note_nl": "Sectorbreedte staat op het 69e risicopercentiel (+8 punten in een maand) — steeds minder sectoren dragen de trend."
+      "delta_1m": 19,
+      "note_nl": "Sectorbreedte staat op het 69e risicopercentiel (+19 punten in een maand) — steeds minder sectoren dragen de trend."
+    },
+    {
+      "indicator": "trend_stress",
+      "percentile": 41,
+      "delta_1m": 16,
+      "note_nl": "Trendstatus S&P 500 staat op het 41e risicopercentiel (+16 punten in een maand) — een koers onder het 200-daags gemiddelde bevestigt de downtrend."
     }
   ],
   "analogs": [
@@ -81,10 +81,6 @@
       "fwd_12m_max_dd": -0.172
     },
     {
-      "period": "2006-06",
-      "fwd_12m_max_dd": -0.059
-    },
-    {
       "period": "2006-08",
       "fwd_12m_max_dd": -0.094
     },
@@ -119,9 +115,13 @@
     {
       "period": "2025-01",
       "fwd_12m_max_dd": -0.189
+    },
+    {
+      "period": "2025-06",
+      "fwd_12m_max_dd": -0.091
     }
   ],
-  "ai_summary_nl": null,
+  "ai_summary_nl": "De pijler marktbreedte sprong deze maand 15 percentielpunten hoger binnen het stress-blok, gedreven door een combinatie van signalen: de VIX-termijnstructuur draaide verder in inversie (+26 punten), steeds minder sectoren houden de trend vast boven hun 200-daags gemiddelde (+19 punten), en de S&P 500 bevestigde de zwakte door onder zijn eigen 200-daags gemiddelde te zakken (+16 punten). Dit speelt zich af binnen een regime van Fragiele rust dat al sinds eind november aanhoudt, met een fragiliteitsscore die op 83 nauwelijks is gedaald ten opzichte van een maand geleden — de kwetsbaarheid via waardering en positionering blijft dus dominant aanwezig, terwijl de stress nu meeklimt. Historische analogen met een vergelijkbare combinatie van hoge fragiliteit en oplopende breedtestress laten een wisselend beeld zien: de mildste gevallen, zoals medio 2025 en 1996, bleven beperkt tot een terugval van ongeveer 9 à 10 procent binnen twaalf maanden, terwijl de zwaardere episodes uit 1998, 2000 en vooral oktober 2007 uitmondden in dalingen tussen de 14 en 44 procent. Deze spreiding onderstreept dat een oplopende breedtestress in een fragiel regime",
   "history_url": "https://raw.githubusercontent.com/jcoder86/Speakeasy-risk/main/history.csv",
   "indicators": {
     "cape": {
@@ -155,27 +155,27 @@
       "counts_for_scoring": true
     },
     "vix_ratio": {
-      "percentile": 30,
+      "percentile": 32,
       "stale": false,
-      "as_of": "2026-09-16",
+      "as_of": "2026-09-17",
       "counts_for_scoring": true
     },
     "trend_stress": {
-      "percentile": 51,
+      "percentile": 41,
       "stale": false,
-      "as_of": "2026-09-16",
+      "as_of": "2026-09-17",
       "counts_for_scoring": true
     },
     "sectors_above_200dma": {
       "percentile": 69,
       "stale": false,
-      "as_of": "2026-09-16",
+      "as_of": "2026-09-17",
       "counts_for_scoring": true
     },
     "rsp_spy_6m": {
-      "percentile": 87,
+      "percentile": 90,
       "stale": false,
-      "as_of": "2026-09-16",
+      "as_of": "2026-09-17",
       "counts_for_scoring": true
     },
     "baa_spread": {
