@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T10:33:14+00:00",
+  "generated_at": "2026-10-05T12:33:10+00:00",
   "ok": true,
   "message": "4/11 meetellende indicatoren stale (36%): yield_curve_18m_min, nfci, baa_spread, baa_spread_63d",
   "sources": {
@@ -41,121 +41,121 @@
     "px_index": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 11784,
       "last_date": "2026-10-02"
     },
     "px_vix": {
       "ok": true,
       "error": null,
-      "rows_added": 0,
-      "rows_total": 9258,
-      "last_date": "2026-10-02"
+      "rows_added": 1,
+      "rows_total": 9259,
+      "last_date": "2026-10-05"
     },
     "px_vix3m": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 5069,
       "last_date": "2026-10-02"
     },
     "px_spy": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 8477,
       "last_date": "2026-10-02"
     },
     "px_rsp": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 5894,
       "last_date": "2026-10-02"
     },
     "px_xlb": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 6987,
       "last_date": "2026-10-02"
     },
     "px_xlc": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 2084,
       "last_date": "2026-10-02"
     },
     "px_xle": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 6987,
       "last_date": "2026-10-02"
     },
     "px_xlf": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 6987,
       "last_date": "2026-10-02"
     },
     "px_xli": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 6987,
       "last_date": "2026-10-02"
     },
     "px_xlk": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 6987,
       "last_date": "2026-10-02"
     },
     "px_xlp": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 6987,
       "last_date": "2026-10-02"
     },
     "px_xlre": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 2762,
       "last_date": "2026-10-02"
     },
     "px_xlu": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 6987,
       "last_date": "2026-10-02"
     },
     "px_xlv": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 6987,
       "last_date": "2026-10-02"
     },
     "px_xly": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 6987,
       "last_date": "2026-10-02"
     },
     "cape": {
       "ok": true,
       "error": null,
-      "rows_added": 0,
-      "rows_total": 1521,
-      "last_date": "2026-09-05"
+      "rows_added": 1,
+      "rows_total": 1522,
+      "last_date": "2026-10-05"
     },
     "margin_debt": {
       "ok": true,
@@ -168,20 +168,20 @@
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 66,
-      "last_date": "2026-10-03"
+      "rows_total": 67,
+      "last_date": "2026-10-05"
     }
   },
   "indicators": {
     "cape": {
-      "as_of": "2026-09-05",
+      "as_of": "2026-10-05",
       "stale": false,
       "counts_for_scoring": true,
       "frequency": "monthly",
       "years_of_history": 126.7
     },
     "excess_cape_yield": {
-      "as_of": "2026-09-05",
+      "as_of": "2026-10-05",
       "stale": false,
       "counts_for_scoring": true,
       "frequency": "monthly",
@@ -209,7 +209,7 @@
       "years_of_history": 55.5
     },
     "top10_concentration": {
-      "as_of": "2026-10-03",
+      "as_of": "2026-10-05",
       "stale": false,
       "counts_for_scoring": false,
       "frequency": "daily",
