@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T12:54:43+00:00",
+  "generated_at": "2026-11-12T13:56:57+00:00",
   "regime": "fragile_calm",
   "regime_label_nl": "Fragiele rust",
   "regime_since": "2025-11-25",
@@ -12,10 +12,10 @@
     }
   },
   "stress": {
-    "score": 45,
+    "score": 42,
     "pillars": {
-      "volatility": 72,
-      "breadth": 36,
+      "volatility": 65,
+      "breadth": 32,
       "credit_fast": 25
     }
   },
@@ -23,46 +23,42 @@
     {
       "indicator": "rsp_spy_6m",
       "percentile": 4,
-      "delta_1m": -89,
-      "note_nl": "Equal-weight vs cap-weight staat op het 4e risicopercentiel (-89 punten in een maand) — de index stijgt harder dan het gemiddelde aandeel: smal leiderschap."
+      "delta_1m": -88,
+      "note_nl": "Equal-weight vs cap-weight staat op het 4e risicopercentiel (-88 punten in een maand) — de index stijgt harder dan het gemiddelde aandeel: smal leiderschap."
     },
     {
       "indicator": "vix_ratio",
-      "percentile": 82,
+      "percentile": 77,
       "delta_1m": 52,
-      "note_nl": "VIX-termijnstructuur staat op het 82e risicopercentiel (+52 punten in een maand) — inversie betekent dat de markt nú meer vreest dan straks."
+      "note_nl": "VIX-termijnstructuur staat op het 77e risicopercentiel (+52 punten in een maand) — inversie betekent dat de markt nú meer vreest dan straks."
     },
     {
       "indicator": "trend_stress",
-      "percentile": 63,
-      "delta_1m": 37,
-      "note_nl": "Trendstatus S&P 500 staat op het 63e risicopercentiel (+37 punten in een maand) — een koers onder het 200-daags gemiddelde bevestigt de downtrend."
+      "percentile": 53,
+      "delta_1m": 27,
+      "note_nl": "Trendstatus S&P 500 staat op het 53e risicopercentiel (+27 punten in een maand) — een koers onder het 200-daags gemiddelde bevestigt de downtrend."
     }
   ],
   "analogs": [
     {
-      "period": "1996-07",
-      "fwd_12m_max_dd": -0.096
-    },
-    {
       "period": "1997-03",
       "fwd_12m_max_dd": -0.108
+    },
+    {
+      "period": "1997-11",
+      "fwd_12m_max_dd": -0.193
     },
     {
       "period": "1998-01",
       "fwd_12m_max_dd": -0.193
     },
     {
-      "period": "1998-12",
-      "fwd_12m_max_dd": -0.121
+      "period": "1998-05",
+      "fwd_12m_max_dd": -0.193
     },
     {
       "period": "1999-02",
       "fwd_12m_max_dd": -0.121
-    },
-    {
-      "period": "1999-11",
-      "fwd_12m_max_dd": -0.139
     },
     {
       "period": "2000-01",
@@ -77,23 +73,27 @@
       "fwd_12m_max_dd": -0.163
     },
     {
-      "period": "2007-03",
+      "period": "2007-04",
       "fwd_12m_max_dd": -0.186
+    },
+    {
+      "period": "2024-01",
+      "fwd_12m_max_dd": -0.085
     },
     {
       "period": "2024-04",
       "fwd_12m_max_dd": -0.189
     },
     {
-      "period": "2024-07",
+      "period": "2024-06",
+      "fwd_12m_max_dd": -0.189
+    },
+    {
+      "period": "2024-08",
       "fwd_12m_max_dd": -0.189
     },
     {
       "period": "2024-09",
-      "fwd_12m_max_dd": -0.189
-    },
-    {
-      "period": "2024-10",
       "fwd_12m_max_dd": -0.189
     },
     {
@@ -155,27 +155,27 @@
       "counts_for_scoring": true
     },
     "vix_ratio": {
-      "percentile": 82,
+      "percentile": 77,
       "stale": false,
-      "as_of": "2026-11-10",
+      "as_of": "2026-11-11",
       "counts_for_scoring": true
     },
     "trend_stress": {
-      "percentile": 63,
+      "percentile": 53,
       "stale": false,
-      "as_of": "2026-11-10",
+      "as_of": "2026-11-11",
       "counts_for_scoring": true
     },
     "sectors_above_200dma": {
-      "percentile": 69,
+      "percentile": 61,
       "stale": false,
-      "as_of": "2026-11-10",
+      "as_of": "2026-11-11",
       "counts_for_scoring": true
     },
     "rsp_spy_6m": {
       "percentile": 4,
       "stale": false,
-      "as_of": "2026-11-10",
+      "as_of": "2026-11-11",
       "counts_for_scoring": true
     },
     "baa_spread": {
