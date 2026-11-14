@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T13:22:37+00:00",
+  "generated_at": "2026-11-14T12:26:53+00:00",
   "ok": true,
   "message": "4/11 meetellende indicatoren stale (36%): yield_curve_18m_min, nfci, baa_spread, baa_spread_63d",
   "sources": {
@@ -42,13 +42,13 @@
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 11813,
-      "last_date": "2026-11-12"
+      "rows_total": 11814,
+      "last_date": "2026-11-13"
     },
     "px_vix": {
       "ok": true,
       "error": null,
-      "rows_added": 1,
+      "rows_added": 0,
       "rows_total": 9288,
       "last_date": "2026-11-13"
     },
@@ -56,99 +56,99 @@
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 5098,
-      "last_date": "2026-11-12"
+      "rows_total": 5099,
+      "last_date": "2026-11-13"
     },
     "px_spy": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 8506,
-      "last_date": "2026-11-12"
+      "rows_total": 8507,
+      "last_date": "2026-11-13"
     },
     "px_rsp": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 5923,
-      "last_date": "2026-11-12"
+      "rows_total": 5924,
+      "last_date": "2026-11-13"
     },
     "px_xlb": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 7016,
-      "last_date": "2026-11-12"
+      "rows_total": 7017,
+      "last_date": "2026-11-13"
     },
     "px_xlc": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 2113,
-      "last_date": "2026-11-12"
+      "rows_total": 2114,
+      "last_date": "2026-11-13"
     },
     "px_xle": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 7016,
-      "last_date": "2026-11-12"
+      "rows_total": 7017,
+      "last_date": "2026-11-13"
     },
     "px_xlf": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 7016,
-      "last_date": "2026-11-12"
+      "rows_total": 7017,
+      "last_date": "2026-11-13"
     },
     "px_xli": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 7016,
-      "last_date": "2026-11-12"
+      "rows_total": 7017,
+      "last_date": "2026-11-13"
     },
     "px_xlk": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 7016,
-      "last_date": "2026-11-12"
+      "rows_total": 7017,
+      "last_date": "2026-11-13"
     },
     "px_xlp": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 7016,
-      "last_date": "2026-11-12"
+      "rows_total": 7017,
+      "last_date": "2026-11-13"
     },
     "px_xlre": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 2791,
-      "last_date": "2026-11-12"
+      "rows_total": 2792,
+      "last_date": "2026-11-13"
     },
     "px_xlu": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 7016,
-      "last_date": "2026-11-12"
+      "rows_total": 7017,
+      "last_date": "2026-11-13"
     },
     "px_xlv": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 7016,
-      "last_date": "2026-11-12"
+      "rows_total": 7017,
+      "last_date": "2026-11-13"
     },
     "px_xly": {
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 7016,
-      "last_date": "2026-11-12"
+      "rows_total": 7017,
+      "last_date": "2026-11-13"
     },
     "cape": {
       "ok": true,
@@ -168,8 +168,8 @@
       "ok": true,
       "error": null,
       "rows_added": 1,
-      "rows_total": 101,
-      "last_date": "2026-11-13"
+      "rows_total": 102,
+      "last_date": "2026-11-14"
     }
   },
   "indicators": {
@@ -209,35 +209,35 @@
       "years_of_history": 55.5
     },
     "top10_concentration": {
-      "as_of": "2026-11-13",
+      "as_of": "2026-11-14",
       "stale": false,
       "counts_for_scoring": false,
       "frequency": "daily",
       "years_of_history": 0.3
     },
     "vix_ratio": {
-      "as_of": "2026-11-12",
+      "as_of": "2026-11-13",
       "stale": false,
       "counts_for_scoring": true,
       "frequency": "daily",
       "years_of_history": 20.3
     },
     "trend_stress": {
-      "as_of": "2026-11-12",
+      "as_of": "2026-11-13",
       "stale": false,
       "counts_for_scoring": true,
       "frequency": "daily",
       "years_of_history": 45.9
     },
     "sectors_above_200dma": {
-      "as_of": "2026-11-12",
+      "as_of": "2026-11-13",
       "stale": false,
       "counts_for_scoring": true,
       "frequency": "daily",
       "years_of_history": 27.1
     },
     "rsp_spy_6m": {
-      "as_of": "2026-11-12",
+      "as_of": "2026-11-13",
       "stale": false,
       "counts_for_scoring": true,
       "frequency": "daily",
